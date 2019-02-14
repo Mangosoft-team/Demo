@@ -1,0 +1,2715 @@
+<!doctype html>
+<html>
+  <head>
+    <title>CDL-Api Documentation</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>CDL-Api Documentation</h1>
+    <div class="app-desc">CDL-Api Documentation</div>
+    <div class="app-desc">More information: <a href="https://helloreverb.com">https://helloreverb.com</a></div>
+    <div class="app-desc">Contact Info: <a href="hello@helloreverb.com">hello@helloreverb.com</a></div>
+    <div class="app-desc">Version: 0.1.16</div>
+    <div class="app-desc">BasePath:/vg/lrs</div>
+    <div class="license-info">All rights reserved</div>
+    <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#AccountController">AccountController</a></h4>
+  <ul>
+  <li><a href="#getBalanceBeforeOrEqualUsingGET"><code><span class="http-method">get</span> /accounts/{accNo}/balances/latest/{dateString}</code></a></li>
+  <li><a href="#getBalancesUsingGET"><code><span class="http-method">get</span> /accounts/{accNo}/balances/{dateString}</code></a></li>
+  <li><a href="#getBalancesUsingGET1"><code><span class="http-method">get</span> /accounts/{accNo}/balances</code></a></li>
+  <li><a href="#getByIdUsingGET"><code><span class="http-method">get</span> /accounts/{accNo}</code></a></li>
+  </ul>
+  <h4><a href="#ContractController">ContractController</a></h4>
+  <ul>
+  <li><a href="#getForbearanceUsingGET"><code><span class="http-method">get</span> /contracts/{id}/forbearance/{dateString}</code></a></li>
+  </ul>
+  <h4><a href="#ContractStatusController">ContractStatusController</a></h4>
+  <ul>
+  <li><a href="#getContractStatusUsingGET"><code><span class="http-method">get</span> /contract-status/{id}/date/{dateString}</code></a></li>
+  <li><a href="#getContractStatusUsingGET1"><code><span class="http-method">get</span> /contract-status/{id}/facilities/{facilityId}/date/{dateString}</code></a></li>
+  </ul>
+  <h4><a href="#CounterpartyController">CounterpartyController</a></h4>
+  <ul>
+  <li><a href="#deleteCounterpartyUsingDELETE"><code><span class="http-method">delete</span> /counterparties/{id}</code></a></li>
+  <li><a href="#getAllUsingGET"><code><span class="http-method">get</span> /counterparties</code></a></li>
+  <li><a href="#getByIdUsingGET1"><code><span class="http-method">get</span> /counterparties/{id}</code></a></li>
+  <li><a href="#getCounterpartiesByNameUsingGET"><code><span class="http-method">get</span> /counterparties/</code></a></li>
+  <li><a href="#saveCounterpartyUsingPOST"><code><span class="http-method">post</span> /counterparties</code></a></li>
+  </ul>
+  <h4><a href="#CountryController">CountryController</a></h4>
+  <ul>
+  <li><a href="#getAllUsingGET1"><code><span class="http-method">get</span> /countries</code></a></li>
+  <li><a href="#getByIdUsingGET2"><code><span class="http-method">get</span> /countries/{id}</code></a></li>
+  </ul>
+  <h4><a href="#CurrencyController">CurrencyController</a></h4>
+  <ul>
+  <li><a href="#getAllUsingGET2"><code><span class="http-method">get</span> /currencies</code></a></li>
+  <li><a href="#getByIdUsingGET3"><code><span class="http-method">get</span> /currencies/{iso}</code></a></li>
+  </ul>
+  <h4><a href="#LegalFormController">LegalFormController</a></h4>
+  <ul>
+  <li><a href="#getAllUsingGET3"><code><span class="http-method">get</span> /legalforms</code></a></li>
+  <li><a href="#getByIdUsingGET4"><code><span class="http-method">get</span> /legalforms/{id}</code></a></li>
+  </ul>
+  <h4><a href="#LoanController">LoanController</a></h4>
+  <ul>
+  <li><a href="#deleteBookValueUsingDELETE"><code><span class="http-method">delete</span> /loanagreements/{id}/facilities/{cFacId}/book-values</code></a></li>
+  <li><a href="#getAllBookValuesUsingGET"><code><span class="http-method">get</span> /loanagreements/{id}/facilities/{cFacId}/book-values</code></a></li>
+  <li><a href="#getAllUsingGET4"><code><span class="http-method">get</span> /loanagreements</code></a></li>
+  <li><a href="#getBookValueBeforeOrEqualUsingGET"><code><span class="http-method">get</span> /loanagreements/{id}/facilities/{cFacId}/book-values/latest/{dateString}/type/{typeString}</code></a></li>
+  <li><a href="#getBookValueUsingGET"><code><span class="http-method">get</span> /loanagreements/{id}/facilities/{cFacId}/book-values/{dateString}/type/{typeString}</code></a></li>
+  <li><a href="#getByIdUsingGET5"><code><span class="http-method">get</span> /loanagreements/{id}</code></a></li>
+  <li><a href="#getEWBFacilityBeforeOrEqualUsingGET"><code><span class="http-method">get</span> /loanagreements/{id}/facilities/{cFacId}/ewb/latest/{dateString}</code></a></li>
+  <li><a href="#getEWBFacilityUsingGET"><code><span class="http-method">get</span> /loanagreements/{id}/facilities/{cFacId}/ewb/{dateString}</code></a></li>
+  <li><a href="#getEWBLoanBeforeOrEqualUsingGET"><code><span class="http-method">get</span> /loanagreements/{id}/ewb/latest/{dateString}</code></a></li>
+  <li><a href="#getEWBLoanUsingGET"><code><span class="http-method">get</span> /loanagreements/{id}/ewb/{dateString}</code></a></li>
+  <li><a href="#saveBookValueUsingPOST"><code><span class="http-method">post</span> /loanagreements/{id}/facilities/{cFacId}/book-values</code></a></li>
+  <li><a href="#saveEWB4FacilityUsingPOST"><code><span class="http-method">post</span> /loanagreements/{id}/facilities/{cFacId}/ewb</code></a></li>
+  <li><a href="#saveEWB4LoanUsingPOST"><code><span class="http-method">post</span> /loanagreements/{id}/ewb</code></a></li>
+  <li><a href="#saveUsingPOST"><code><span class="http-method">post</span> /loanagreements</code></a></li>
+  <li><a href="#updateUsingPATCH"><code><span class="http-method">patch</span> /loanagreements/{id}</code></a></li>
+  </ul>
+  <h4><a href="#ProductController">ProductController</a></h4>
+  <ul>
+  <li><a href="#getAllUsingGET5"><code><span class="http-method">get</span> /products</code></a></li>
+  <li><a href="#getByIdUsingGET6"><code><span class="http-method">get</span> /products/{id}</code></a></li>
+  </ul>
+
+  <h1><a name="AccountController">AccountController</a></h1>
+  <div class="method"><a name="getBalanceBeforeOrEqualUsingGET"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /accounts/{accNo}/balances/latest/{dateString}</code></pre></div>
+    <div class="method-summary">getBalanceBeforeOrEqual (<span class="nickname">getBalanceBeforeOrEqualUsingGET</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">accNo (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; accNo </div><div class="param">dateString (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; dateString </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#AccountBalance">AccountBalance</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: </div>
+    <pre class="example"><code></code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#AccountBalance">AccountBalance</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Not Found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getBalancesUsingGET"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /accounts/{accNo}/balances/{dateString}</code></pre></div>
+    <div class="method-summary">getBalances (<span class="nickname">getBalancesUsingGET</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">accNo (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; accNo </div><div class="param">dateString (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; dateString </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#AccountBalance">AccountBalance</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: </div>
+    <pre class="example"><code></code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#AccountBalance">AccountBalance</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Not Found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getBalancesUsingGET1"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /accounts/{accNo}/balances</code></pre></div>
+    <div class="method-summary">getBalances (<span class="nickname">getBalancesUsingGET1</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">accNo (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; accNo </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#AccountBalance">AccountBalance</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: </div>
+    <pre class="example"><code></code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Not Found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getByIdUsingGET"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /accounts/{accNo}</code></pre></div>
+    <div class="method-summary">getById (<span class="nickname">getByIdUsingGET</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">accNo (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; accNo </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Account">Account</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: </div>
+    <pre class="example"><code></code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#Account">Account</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Not Found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="ContractController">ContractController</a></h1>
+  <div class="method"><a name="getForbearanceUsingGET"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /contracts/{id}/forbearance/{dateString}</code></pre></div>
+    <div class="method-summary">getForbearance (<span class="nickname">getForbearanceUsingGET</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dateString (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; dateString </div><div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id format: int64</div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Forbearance">Forbearance</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: </div>
+    <pre class="example"><code></code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#Forbearance">Forbearance</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Not Found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="ContractStatusController">ContractStatusController</a></h1>
+  <div class="method"><a name="getContractStatusUsingGET"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /contract-status/{id}/date/{dateString}</code></pre></div>
+    <div class="method-summary">getContractStatus (<span class="nickname">getContractStatusUsingGET</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dateString (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; dateString </div><div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id format: int64</div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ContractStatus">ContractStatus</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: </div>
+    <pre class="example"><code></code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ContractStatus">ContractStatus</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Not Found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getContractStatusUsingGET1"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /contract-status/{id}/facilities/{facilityId}/date/{dateString}</code></pre></div>
+    <div class="method-summary">getContractStatus (<span class="nickname">getContractStatusUsingGET1</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dateString (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; dateString </div><div class="param">facilityId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; facilityId format: int64</div><div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id format: int64</div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ContractStatus">ContractStatus</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: </div>
+    <pre class="example"><code></code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ContractStatus">ContractStatus</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Not Found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="CounterpartyController">CounterpartyController</a></h1>
+  <div class="method"><a name="deleteCounterpartyUsingDELETE"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /counterparties/{id}</code></pre></div>
+    <div class="method-summary">deleteCounterparty (<span class="nickname">deleteCounterpartyUsingDELETE</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id format: int64</div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#"></a>
+    <h4 class="field-label">204</h4>
+    No Content
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getAllUsingGET"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /counterparties</code></pre></div>
+    <div class="method-summary">getAll (<span class="nickname">getAllUsingGET</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Counterparty">Counterparty</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: </div>
+    <pre class="example"><code></code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Not Found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getByIdUsingGET1"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /counterparties/{id}</code></pre></div>
+    <div class="method-summary">getById (<span class="nickname">getByIdUsingGET1</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id format: int64</div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Counterparty">Counterparty</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: </div>
+    <pre class="example"><code></code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#Counterparty">Counterparty</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Not Found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getCounterpartiesByNameUsingGET"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /counterparties/</code></pre></div>
+    <div class="method-summary">getCounterpartiesByName (<span class="nickname">getCounterpartiesByNameUsingGET</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">partOfName (required)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; partOfName </div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Counterparty">Counterparty</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: </div>
+    <pre class="example"><code></code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Not Found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="saveCounterpartyUsingPOST"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /counterparties</code></pre></div>
+    <div class="method-summary">saveCounterparty (<span class="nickname">saveCounterpartyUsingPOST</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">counterparty <a href="#Counterparty">Counterparty</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; counterparty </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Counterparty">Counterparty</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: </div>
+    <pre class="example"><code></code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#Counterparty">Counterparty</a>
+    <h4 class="field-label">201</h4>
+    Created
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Not Found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="CountryController">CountryController</a></h1>
+  <div class="method"><a name="getAllUsingGET1"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /countries</code></pre></div>
+    <div class="method-summary">getAll (<span class="nickname">getAllUsingGET1</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Country">Country</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: </div>
+    <pre class="example"><code></code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Not Found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getByIdUsingGET2"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /countries/{id}</code></pre></div>
+    <div class="method-summary">getById (<span class="nickname">getByIdUsingGET2</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id format: int64</div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Country">Country</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: </div>
+    <pre class="example"><code></code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#Country">Country</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Not Found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="CurrencyController">CurrencyController</a></h1>
+  <div class="method"><a name="getAllUsingGET2"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /currencies</code></pre></div>
+    <div class="method-summary">getAll (<span class="nickname">getAllUsingGET2</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Currency">Currency</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: </div>
+    <pre class="example"><code></code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Not Found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getByIdUsingGET3"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /currencies/{iso}</code></pre></div>
+    <div class="method-summary">getById (<span class="nickname">getByIdUsingGET3</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">iso (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; iso </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Currency">Currency</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: </div>
+    <pre class="example"><code></code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#Currency">Currency</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Not Found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="LegalFormController">LegalFormController</a></h1>
+  <div class="method"><a name="getAllUsingGET3"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /legalforms</code></pre></div>
+    <div class="method-summary">getAll (<span class="nickname">getAllUsingGET3</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#LegalForm">LegalForm</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: </div>
+    <pre class="example"><code></code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Not Found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getByIdUsingGET4"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /legalforms/{id}</code></pre></div>
+    <div class="method-summary">getById (<span class="nickname">getByIdUsingGET4</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id format: int64</div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#LegalForm">LegalForm</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: </div>
+    <pre class="example"><code></code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#LegalForm">LegalForm</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Not Found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="LoanController">LoanController</a></h1>
+  <div class="method"><a name="deleteBookValueUsingDELETE"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /loanagreements/{id}/facilities/{cFacId}/book-values</code></pre></div>
+    <div class="method-summary">deleteBookValue (<span class="nickname">deleteBookValueUsingDELETE</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">cFacId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; cFacId format: int64</div><div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id format: int64</div>
+    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">resLoan <a href="#ResLoan">ResLoan</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; resLoan </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ResponseEntity">ResponseEntity</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: </div>
+    <pre class="example"><code></code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ResponseEntity">ResponseEntity</a>
+    <h4 class="field-label">204</h4>
+    No Content
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getAllBookValuesUsingGET"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /loanagreements/{id}/facilities/{cFacId}/book-values</code></pre></div>
+    <div class="method-summary">getAllBookValues (<span class="nickname">getAllBookValuesUsingGET</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">cFacId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; cFacId format: int64</div><div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id format: int64</div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#ResLoan">ResLoan</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: </div>
+    <pre class="example"><code></code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Not Found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getAllUsingGET4"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /loanagreements</code></pre></div>
+    <div class="method-summary">getAll (<span class="nickname">getAllUsingGET4</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#LoanAgreement">LoanAgreement</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: </div>
+    <pre class="example"><code></code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Not Found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getBookValueBeforeOrEqualUsingGET"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /loanagreements/{id}/facilities/{cFacId}/book-values/latest/{dateString}/type/{typeString}</code></pre></div>
+    <div class="method-summary">getBookValueBeforeOrEqual (<span class="nickname">getBookValueBeforeOrEqualUsingGET</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">cFacId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; cFacId format: int64</div><div class="param">dateString (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; dateString </div><div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id format: int64</div><div class="param">typeString (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; typeString </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ResLoan">ResLoan</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: </div>
+    <pre class="example"><code></code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ResLoan">ResLoan</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Not Found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getBookValueUsingGET"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /loanagreements/{id}/facilities/{cFacId}/book-values/{dateString}/type/{typeString}</code></pre></div>
+    <div class="method-summary">getBookValue (<span class="nickname">getBookValueUsingGET</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">cFacId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; cFacId format: int64</div><div class="param">dateString (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; dateString </div><div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id format: int64</div><div class="param">typeString (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; typeString </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ResLoan">ResLoan</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: </div>
+    <pre class="example"><code></code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ResLoan">ResLoan</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Not Found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getByIdUsingGET5"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /loanagreements/{id}</code></pre></div>
+    <div class="method-summary">getById (<span class="nickname">getByIdUsingGET5</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id format: int64</div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#LoanAgreement">LoanAgreement</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: </div>
+    <pre class="example"><code></code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#LoanAgreement">LoanAgreement</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Not Found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getEWBFacilityBeforeOrEqualUsingGET"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /loanagreements/{id}/facilities/{cFacId}/ewb/latest/{dateString}</code></pre></div>
+    <div class="method-summary">getEWBFacilityBeforeOrEqual (<span class="nickname">getEWBFacilityBeforeOrEqualUsingGET</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">cFacId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; cFacId format: int64</div><div class="param">dateString (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; dateString </div><div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id format: int64</div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ResEWB">ResEWB</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: </div>
+    <pre class="example"><code></code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ResEWB">ResEWB</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Not Found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getEWBFacilityUsingGET"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /loanagreements/{id}/facilities/{cFacId}/ewb/{dateString}</code></pre></div>
+    <div class="method-summary">getEWBFacility (<span class="nickname">getEWBFacilityUsingGET</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">cFacId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; cFacId format: int64</div><div class="param">dateString (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; dateString </div><div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id format: int64</div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ResEWB">ResEWB</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: </div>
+    <pre class="example"><code></code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ResEWB">ResEWB</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Not Found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getEWBLoanBeforeOrEqualUsingGET"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /loanagreements/{id}/ewb/latest/{dateString}</code></pre></div>
+    <div class="method-summary">getEWBLoanBeforeOrEqual (<span class="nickname">getEWBLoanBeforeOrEqualUsingGET</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dateString (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; dateString </div><div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id format: int64</div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ResEWB">ResEWB</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: </div>
+    <pre class="example"><code></code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ResEWB">ResEWB</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Not Found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getEWBLoanUsingGET"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /loanagreements/{id}/ewb/{dateString}</code></pre></div>
+    <div class="method-summary">getEWBLoan (<span class="nickname">getEWBLoanUsingGET</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dateString (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; dateString </div><div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id format: int64</div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#ResEWB">ResEWB</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: </div>
+    <pre class="example"><code></code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Not Found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="saveBookValueUsingPOST"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /loanagreements/{id}/facilities/{cFacId}/book-values</code></pre></div>
+    <div class="method-summary">saveBookValue (<span class="nickname">saveBookValueUsingPOST</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">cFacId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; cFacId format: int64</div><div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id format: int64</div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">resLoan <a href="#ResLoan">ResLoan</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; resLoan </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ResLoan">ResLoan</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: </div>
+    <pre class="example"><code></code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ResLoan">ResLoan</a>
+    <h4 class="field-label">201</h4>
+    Created
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Not Found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="saveEWB4FacilityUsingPOST"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /loanagreements/{id}/facilities/{cFacId}/ewb</code></pre></div>
+    <div class="method-summary">saveEWB4Facility (<span class="nickname">saveEWB4FacilityUsingPOST</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">cFacId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; cFacId format: int64</div><div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id format: int64</div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">resEWB <a href="#ResEWB">ResEWB</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; resEWB </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ResEWB">ResEWB</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: </div>
+    <pre class="example"><code></code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ResEWB">ResEWB</a>
+    <h4 class="field-label">201</h4>
+    Created
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Not Found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="saveEWB4LoanUsingPOST"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /loanagreements/{id}/ewb</code></pre></div>
+    <div class="method-summary">saveEWB4Loan (<span class="nickname">saveEWB4LoanUsingPOST</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id format: int64</div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">resEWB <a href="#ResEWB">ResEWB</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; resEWB </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#ResEWB">ResEWB</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: </div>
+    <pre class="example"><code></code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#ResEWB">ResEWB</a>
+    <h4 class="field-label">201</h4>
+    Created
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Not Found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="saveUsingPOST"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /loanagreements</code></pre></div>
+    <div class="method-summary">save (<span class="nickname">saveUsingPOST</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">loan <a href="#LoanAgreement">LoanAgreement</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; loan </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#LoanAgreement">LoanAgreement</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: </div>
+    <pre class="example"><code></code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#LoanAgreement">LoanAgreement</a>
+    <h4 class="field-label">201</h4>
+    Created
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Not Found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updateUsingPATCH"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="patch"><code class="huge"><span class="http-method">patch</span> /loanagreements/{id}</code></pre></div>
+    <div class="method-summary">update (<span class="nickname">updateUsingPATCH</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id format: int64</div>
+    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">loan <a href="#LoanAgreement">LoanAgreement</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; loan </div>
+
+    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#LoanAgreement">LoanAgreement</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: </div>
+    <pre class="example"><code></code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#LoanAgreement">LoanAgreement</a>
+    <h4 class="field-label">204</h4>
+    No Content
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="ProductController">ProductController</a></h1>
+  <div class="method"><a name="getAllUsingGET5"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /products</code></pre></div>
+    <div class="method-summary">getAll (<span class="nickname">getAllUsingGET5</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Product">Product</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: </div>
+    <pre class="example"><code></code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Not Found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getByIdUsingGET6"/>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /products/{id}</code></pre></div>
+    <div class="method-summary">getById (<span class="nickname">getByIdUsingGET6</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id format: int64</div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Product">Product</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: </div>
+    <pre class="example"><code></code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>*/*</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#Product">Product</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Not Found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#Account"><code>Account</code> - Account</a></li>
+    <li><a href="#AccountBalance"><code>AccountBalance</code> - AccountBalance</a></li>
+    <li><a href="#AccountCounterparty"><code>AccountCounterparty</code> - AccountCounterparty</a></li>
+    <li><a href="#Amount"><code>Amount</code> - Amount</a></li>
+    <li><a href="#Branch"><code>Branch</code> - Branch</a></li>
+    <li><a href="#CashSecurity"><code>CashSecurity</code> - CashSecurity</a></li>
+    <li><a href="#Collateral"><code>Collateral</code> - Collateral</a></li>
+    <li><a href="#CollateralAgreement"><code>CollateralAgreement</code> - CollateralAgreement</a></li>
+    <li><a href="#ContractCounterparty"><code>ContractCounterparty</code> - ContractCounterparty</a></li>
+    <li><a href="#ContractStatus"><code>ContractStatus</code> - ContractStatus</a></li>
+    <li><a href="#CorporateData"><code>CorporateData</code> - CorporateData</a></li>
+    <li><a href="#Counterparty"><code>Counterparty</code> - Counterparty</a></li>
+    <li><a href="#CounterpartyIndustry"><code>CounterpartyIndustry</code> - CounterpartyIndustry</a></li>
+    <li><a href="#Country"><code>Country</code> - Country</a></li>
+    <li><a href="#CreditFacility"><code>CreditFacility</code> - CreditFacility</a></li>
+    <li><a href="#Currency"><code>Currency</code> - Currency</a></li>
+    <li><a href="#ExternalCounterparty"><code>ExternalCounterparty</code> - ExternalCounterparty</a></li>
+    <li><a href="#ExternalSourceContract"><code>ExternalSourceContract</code> - ExternalSourceContract</a></li>
+    <li><a href="#FacilityCounterparty"><code>FacilityCounterparty</code> - FacilityCounterparty</a></li>
+    <li><a href="#Forbearance"><code>Forbearance</code> - Forbearance</a></li>
+    <li><a href="#GuaranteeAgreement"><code>GuaranteeAgreement</code> - GuaranteeAgreement</a></li>
+    <li><a href="#LegalForm"><code>LegalForm</code> - LegalForm</a></li>
+    <li><a href="#LiabilityCounterparty"><code>LiabilityCounterparty</code> - LiabilityCounterparty</a></li>
+    <li><a href="#LoanAgreement"><code>LoanAgreement</code> - LoanAgreement</a></li>
+    <li><a href="#Offset"><code>Offset</code> - Offset</a></li>
+    <li><a href="#PointInTime"><code>PointInTime</code> - PointInTime</a></li>
+    <li><a href="#Product"><code>Product</code> - Product</a></li>
+    <li><a href="#ProductGroup"><code>ProductGroup</code> - ProductGroup</a></li>
+    <li><a href="#ProductType"><code>ProductType</code> - ProductType</a></li>
+    <li><a href="#RegisterId"><code>RegisterId</code> - RegisterId</a></li>
+    <li><a href="#ResEWB"><code>ResEWB</code> - ResEWB</a></li>
+    <li><a href="#ResEWBPK"><code>ResEWBPK</code> - ResEWBPK</a></li>
+    <li><a href="#ResLoan"><code>ResLoan</code> - ResLoan</a></li>
+    <li><a href="#ResLoanPK"><code>ResLoanPK</code> - ResLoanPK</a></li>
+    <li><a href="#ResponseEntity"><code>ResponseEntity</code> - ResponseEntity</a></li>
+    <li><a href="#SecurityAgreement"><code>SecurityAgreement</code> - SecurityAgreement</a></li>
+    <li><a href="#SimplePeriod"><code>SimplePeriod</code> - SimplePeriod</a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="Account"><code>Account</code> - Account</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">accountCounterparties (optional)</div><div class="param-desc"><span class="param-type"><a href="#AccountCounterparty">array[AccountCounterparty]</a></span>  </div>
+<div class="param">accountNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">accountType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">NO_ENTRY</div><div class="param-enum">MT4_MARGIN</div><div class="param-enum">TAGESGELD</div><div class="param-enum">TERMINGELD</div><div class="param-enum">KREDITKONTO</div><div class="param-enum">KONTOKORRENT</div><div class="param-enum">KUENSTLICHES_KONTO</div><div class="param-enum">EVENTUALVERBINDLICHKEIT</div>
+<div class="param">currencyIso (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AccountBalance"><code>AccountBalance</code> - AccountBalance</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">accountNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">balance (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">date (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span>  format: date</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="AccountCounterparty"><code>AccountCounterparty</code> - AccountCounterparty</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">counterpartyId (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Amount"><code>Amount</code> - Amount</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">amount (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">currencyIso (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Branch"><code>Branch</code> - Branch</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">countryId (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">dateClosed (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span>  format: date</div>
+<div class="param">filialType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">F</div><div class="param-enum">R</div><div class="param-enum">Z</div>
+<div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CashSecurity"><code>CashSecurity</code> - CashSecurity</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">accountNumber (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">amount (optional)</div><div class="param-desc"><span class="param-type"><a href="#Amount">Amount</a></span>  </div>
+<div class="param">depositoryBranchId (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">depositoryId (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Collateral"><code>Collateral</code> - Collateral</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">amount (optional)</div><div class="param-desc"><span class="param-type"><a href="#Amount">Amount</a></span>  </div>
+<div class="param">cashSecurities (optional)</div><div class="param-desc"><span class="param-type"><a href="#CashSecurity">array[CashSecurity]</a></span>  </div>
+<div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">lastReview (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span>  format: date</div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">NO_ENTRY</div><div class="param-enum">BARSICHERHEIT</div><div class="param-enum">BONDSICHERHEIT</div><div class="param-enum">AKTIENSICHERHEIT</div><div class="param-enum">FONDSSICHERHEIT</div><div class="param-enum">SCRIPS_SICHERHEIT</div><div class="param-enum">IMMOBILIENSICHERHEIT</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CollateralAgreement"><code>CollateralAgreement</code> - CollateralAgreement</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">collaterals (optional)</div><div class="param-desc"><span class="param-type"><a href="#Collateral">array[Collateral]</a></span>  </div>
+<div class="param">date (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span>  format: date</div>
+<div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">pledgedFrom (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span>  format: date</div>
+<div class="param">pledgedTo (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span>  format: date</div>
+<div class="param">secAgreementId (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">unlimitedYN (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ContractCounterparty"><code>ContractCounterparty</code> - ContractCounterparty</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">branchId (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">contractId (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">counterpartyId (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">role (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">NO_ENTRY</div><div class="param-enum">KREDITNEHMER</div><div class="param-enum">KREDITGEBER</div><div class="param-enum">MANDATED_LEAD_ARRANGER</div><div class="param-enum">BOOKRUNNER</div><div class="param-enum">GARANTIEGEBER</div><div class="param-enum">BUYER</div><div class="param-enum">SELLER</div><div class="param-enum">MAKLER</div><div class="param-enum">EMITTENT</div><div class="param-enum">CASH_LENDER</div><div class="param-enum">CASH_BORROWER</div><div class="param-enum">SECURITY_LENDER</div><div class="param-enum">SECURITY_BORROWER</div><div class="param-enum">ISSUING_BANK</div><div class="param-enum">KOORDINATOR</div><div class="param-enum">BUYER_CURRENCY_1</div><div class="param-enum">SELLER_CURRENCY_1</div><div class="param-enum">DEPOSIT_INVESTOR</div><div class="param-enum">DEPOSIT_RECEIVER</div><div class="param-enum">FUTURE_LONG</div><div class="param-enum">FUTURE_SHORT</div><div class="param-enum">ACCOUNT_OWNER</div><div class="param-enum">ACCOUNT_MANAGER</div><div class="param-enum">GUARANTEE_AVAL</div><div class="param-enum">ORIGINAL_DEBTOR_AVAL</div><div class="param-enum">CREDITOR_AVAL</div>
+<div class="param">since (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span>  format: date</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ContractStatus"><code>ContractStatus</code> - ContractStatus</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">contractId (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">facilityId (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">INTENSIV</div><div class="param-enum">RESTRUCTURING</div>
+<div class="param">validFrom (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span>  format: date</div>
+<div class="param">validTo (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span>  format: date</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CorporateData"><code>CorporateData</code> - CorporateData</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">annualTurnover (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">balanceSheetTotal (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">employeeCount (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+<div class="param">year (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Counterparty"><code>Counterparty</code> - Counterparty</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">address (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">anredeKey (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+<div class="param">bbkIndentifiedYN (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">bbkKGId (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">bbkKNId (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">birthDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span>  format: date</div>
+<div class="param">branches (optional)</div><div class="param-desc"><span class="param-type"><a href="#Branch">array[Branch]</a></span>  </div>
+<div class="param">city (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">corporateData (optional)</div><div class="param-desc"><span class="param-type"><a href="#CorporateData">array[CorporateData]</a></span>  </div>
+<div class="param">dissolvedYN (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">externalIds (optional)</div><div class="param-desc"><span class="param-type"><a href="#ExternalCounterparty">array[ExternalCounterparty]</a></span>  </div>
+<div class="param">givenName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">industries (optional)</div><div class="param-desc"><span class="param-type"><a href="#CounterpartyIndustry">array[CounterpartyIndustry]</a></span>  </div>
+<div class="param">legalFormId (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">lei (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">nationalityId (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">postCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">registerIds (optional)</div><div class="param-desc"><span class="param-type"><a href="#RegisterId">array[RegisterId]</a></span>  </div>
+<div class="param">residenceCountryId (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">since (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span>  format: date</div>
+<div class="param">substancialOpsYN (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">surName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CounterpartyIndustry"><code>CounterpartyIndustry</code> - CounterpartyIndustry</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">industryDetailId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+<div class="param">industryId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+<div class="param">officilallyYN (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">percentage (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Country"><code>Country</code> - Country</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">ausland (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">bbkId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">currencyIso (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">iso (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">isoAlpha3 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">klasse (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">region (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CreditFacility"><code>CreditFacility</code> - CreditFacility</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">account (optional)</div><div class="param-desc"><span class="param-type"><a href="#Account">Account</a></span>  </div>
+<div class="param">availPeriod (optional)</div><div class="param-desc"><span class="param-type"><a href="#SimplePeriod">SimplePeriod</a></span>  </div>
+<div class="param">avalProvisionId (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">facilityParties (optional)</div><div class="param-desc"><span class="param-type"><a href="#FacilityCounterparty">array[FacilityCounterparty]</a></span>  </div>
+<div class="param">iaAsAvalYN (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">interestId (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">liabilityParties (optional)</div><div class="param-desc"><span class="param-type"><a href="#LiabilityCounterparty">array[LiabilityCounterparty]</a></span>  </div>
+<div class="param">maxAmountAval (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">minSizeIA (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">nominal (optional)</div><div class="param-desc"><span class="param-type"><a href="#Amount">Amount</a></span>  </div>
+<div class="param">period (optional)</div><div class="param-desc"><span class="param-type"><a href="#SimplePeriod">SimplePeriod</a></span>  </div>
+<div class="param">prolongierbarYN (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">purpose (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Currency"><code>Currency</code> - Currency</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">bbkId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">eur (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">iso (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ExternalCounterparty"><code>ExternalCounterparty</code> - ExternalCounterparty</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">idInSourceSystem (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">mandantId (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">sourceSystem (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">BROKERBASE</div><div class="param-enum">EFDIS</div><div class="param-enum">DATEV</div><div class="param-enum">MT4</div><div class="param-enum">EOS</div><div class="param-enum">LENDINVEST</div><div class="param-enum">BARAK</div><div class="param-enum">KSEYE</div><div class="param-enum">ATTF</div><div class="param-enum">FSP</div><div class="param-enum">MARKET_INVOICE</div><div class="param-enum">LH_ASIAN</div><div class="param-enum">EFA_SME</div><div class="param-enum">BBF</div><div class="param-enum">NUCLEUS</div><div class="param-enum">SULZER</div><div class="param-enum">GIB</div><div class="param-enum">MONEGA</div><div class="param-enum">WEPA_MITTEILUNG</div><div class="param-enum">NBT</div><div class="param-enum">ORBIS</div><div class="param-enum">BROKERBASE_10_2</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ExternalSourceContract"><code>ExternalSourceContract</code> - ExternalSourceContract</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">ctcType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">NO_ENTRY</div><div class="param-enum">DEPOSITUM</div><div class="param-enum">KONTOKORRENT</div><div class="param-enum">CFD_DEAL</div><div class="param-enum">CFD_MARGINACCOUNT</div><div class="param-enum">KREDITVERTRAG</div><div class="param-enum">AVAL</div><div class="param-enum">KREDITANKAUF</div><div class="param-enum">RECHNUNGSANKAUF</div>
+<div class="param">idInSrcSystem (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">importSperre (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">mandant (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">srcSystem (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">BROKERBASE</div><div class="param-enum">EFDIS</div><div class="param-enum">DATEV</div><div class="param-enum">MT4</div><div class="param-enum">EOS</div><div class="param-enum">LENDINVEST</div><div class="param-enum">BARAK</div><div class="param-enum">KSEYE</div><div class="param-enum">ATTF</div><div class="param-enum">FSP</div><div class="param-enum">MARKET_INVOICE</div><div class="param-enum">LH_ASIAN</div><div class="param-enum">EFA_SME</div><div class="param-enum">BBF</div><div class="param-enum">NUCLEUS</div><div class="param-enum">SULZER</div><div class="param-enum">GIB</div><div class="param-enum">MONEGA</div><div class="param-enum">WEPA_MITTEILUNG</div><div class="param-enum">NBT</div><div class="param-enum">ORBIS</div><div class="param-enum">BROKERBASE_10_2</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="FacilityCounterparty"><code>FacilityCounterparty</code> - FacilityCounterparty</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">contractId (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">counterpartyId (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">role (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">NO_ENTRY</div><div class="param-enum">KREDITNEHMER</div><div class="param-enum">KREDITGEBER</div><div class="param-enum">MANDATED_LEAD_ARRANGER</div><div class="param-enum">BOOKRUNNER</div><div class="param-enum">GARANTIEGEBER</div><div class="param-enum">BUYER</div><div class="param-enum">SELLER</div><div class="param-enum">MAKLER</div><div class="param-enum">EMITTENT</div><div class="param-enum">CASH_LENDER</div><div class="param-enum">CASH_BORROWER</div><div class="param-enum">SECURITY_LENDER</div><div class="param-enum">SECURITY_BORROWER</div><div class="param-enum">ISSUING_BANK</div><div class="param-enum">KOORDINATOR</div><div class="param-enum">BUYER_CURRENCY_1</div><div class="param-enum">SELLER_CURRENCY_1</div><div class="param-enum">DEPOSIT_INVESTOR</div><div class="param-enum">DEPOSIT_RECEIVER</div><div class="param-enum">FUTURE_LONG</div><div class="param-enum">FUTURE_SHORT</div><div class="param-enum">ACCOUNT_OWNER</div><div class="param-enum">ACCOUNT_MANAGER</div><div class="param-enum">GUARANTEE_AVAL</div><div class="param-enum">ORIGINAL_DEBTOR_AVAL</div><div class="param-enum">CREDITOR_AVAL</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Forbearance"><code>Forbearance</code> - Forbearance</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">contractId (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">forborneYN (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">validFrom (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span>  format: date</div>
+<div class="param">validTo (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span>  format: date</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="GuaranteeAgreement"><code>GuaranteeAgreement</code> - GuaranteeAgreement</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">amount (optional)</div><div class="param-desc"><span class="param-type"><a href="#Amount">Amount</a></span>  </div>
+<div class="param">date (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span>  format: date</div>
+<div class="param">guaranteer (optional)</div><div class="param-desc"><span class="param-type"><a href="#Counterparty">Counterparty</a></span>  </div>
+<div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">kuendrechtGGYN (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">secAgreementId (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">unbedingtYN (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="LegalForm"><code>LegalForm</code> - LegalForm</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">abbreviation (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">countryId (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">germanEquivalentId (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">NATUERLICH</div><div class="param-enum">JURISTISCH</div><div class="param-enum">ZUSAMMEN</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="LiabilityCounterparty"><code>LiabilityCounterparty</code> - LiabilityCounterparty</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">counterpartyId (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">since (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span>  format: date</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="LoanAgreement"><code>LoanAgreement</code> - LoanAgreement</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">abYN (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">addBorrowerYN (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">addKonsorteYN (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">addWesGesellYN (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">applicableLawOfCountryId (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">closer (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+<div class="param">closerCty (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+<div class="param">closing (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
+<div class="param">ctcCtys (optional)</div><div class="param-desc"><span class="param-type"><a href="#ContractCounterparty">array[ContractCounterparty]</a></span>  </div>
+<div class="param">exposure (optional)</div><div class="param-desc"><span class="param-type"><a href="#Amount">Amount</a></span>  </div>
+<div class="param">externalContract (optional)</div><div class="param-desc"><span class="param-type"><a href="#ExternalSourceContract">ExternalSourceContract</a></span>  </div>
+<div class="param">externalContracts (optional)</div><div class="param-desc"><span class="param-type"><a href="#ExternalSourceContract">array[ExternalSourceContract]</a></span>  </div>
+<div class="param">facilities (optional)</div><div class="param-desc"><span class="param-type"><a href="#CreditFacility">array[CreditFacility]</a></span>  </div>
+<div class="param">folgekontraktZu (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">kgNettingYN (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">knNettingYN (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">masterAgreementId (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">pariPasuYN (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">productId (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">securityAgreements (optional)</div><div class="param-desc"><span class="param-type"><a href="#SecurityAgreement">array[SecurityAgreement]</a></span>  </div>
+<div class="param">strukturelementVon (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">subLoanLimit (optional)</div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
+<div class="param">syndizierungsklauselYN (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">tzClosing (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">tzValuta (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">underlyingYN (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">valuta (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span>  format: date</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Offset"><code>Offset</code> - Offset</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">bdc (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">NO_SPECIFICATION</div><div class="param-enum">NO_ADJUSTMENT</div><div class="param-enum">FOLLOWING</div><div class="param-enum">PREVIOUS</div><div class="param-enum">MODIFIED_FOLLOWING</div><div class="param-enum">MODIFIED_PREVIOUS</div>
+<div class="param">dayType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">offsetUnit (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">NO_ENTRY</div><div class="param-enum">DAY</div><div class="param-enum">WEEK</div><div class="param-enum">MONTH</div><div class="param-enum">YEAR</div>
+<div class="param">offsetValue (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="PointInTime"><code>PointInTime</code> - PointInTime</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">eventId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+<div class="param">eventOffset (optional)</div><div class="param-desc"><span class="param-type"><a href="#Offset">Offset</a></span>  </div>
+<div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">minMax (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">pointDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span>  format: date</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Product"><code>Product</code> - Product</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">ifrsLevel (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">type (optional)</div><div class="param-desc"><span class="param-type"><a href="#ProductType">ProductType</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ProductGroup"><code>ProductGroup</code> - ProductGroup</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ProductType"><code>ProductType</code> - ProductType</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">group (optional)</div><div class="param-desc"><span class="param-type"><a href="#ProductGroup">ProductGroup</a></span>  </div>
+<div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="RegisterId"><code>RegisterId</code> - RegisterId</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">registerIdValue (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">registerTypeId (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ResEWB"><code>ResEWB</code> - ResEWB</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">amount (optional)</div><div class="param-desc"><span class="param-type"><a href="#Amount">Amount</a></span>  </div>
+<div class="param">key (optional)</div><div class="param-desc"><span class="param-type"><a href="#ResEWBPK">ResEWBPK</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ResEWBPK"><code>ResEWBPK</code> - ResEWBPK</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">contractId (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">corrected (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
+<div class="param">date (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span>  format: date</div>
+<div class="param">facilityId (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">invoiceId (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">resultType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">NO_ENTRY</div><div class="param-enum">WERTPAPIER_BW_BESTAND</div><div class="param-enum">WERTPAPIER_FW_BESTAND</div><div class="param-enum">DEPOSITUM_BW_BESTAND</div><div class="param-enum">DEPOSITUM_FW_BESTAND</div><div class="param-enum">BETEILIGUNG_BW</div><div class="param-enum">CFD_BAR_KW</div><div class="param-enum">KREDIT_BW</div><div class="param-enum">CFD_BW</div><div class="param-enum">ZINSFUTURE_BW</div><div class="param-enum">REPO_BW</div><div class="param-enum">WERTPAPIERLEIHE_BW</div><div class="param-enum">EWB</div><div class="param-enum">PWB</div><div class="param-enum">STEUERN_LATENTE_AKTIVE</div><div class="param-enum">FX_FORWARD_BW</div><div class="param-enum">STOCK_FUTURE_BW</div><div class="param-enum">ZINSABGRENZUNG</div><div class="param-enum">SALDO_A_ODER_E</div><div class="param-enum">RECHNUNGSFORDERUNG_BW</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ResLoan"><code>ResLoan</code> - ResLoan</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">amount (optional)</div><div class="param-desc"><span class="param-type"><a href="#Amount">Amount</a></span>  </div>
+<div class="param">corrected (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
+<div class="param">key (optional)</div><div class="param-desc"><span class="param-type"><a href="#ResLoanPK">ResLoanPK</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ResLoanPK"><code>ResLoanPK</code> - ResLoanPK</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">date (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span>  format: date</div>
+<div class="param">facilityId (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">loanId (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">resultType (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">NO_ENTRY</div><div class="param-enum">WERTPAPIER_BW_BESTAND</div><div class="param-enum">WERTPAPIER_FW_BESTAND</div><div class="param-enum">DEPOSITUM_BW_BESTAND</div><div class="param-enum">DEPOSITUM_FW_BESTAND</div><div class="param-enum">BETEILIGUNG_BW</div><div class="param-enum">CFD_BAR_KW</div><div class="param-enum">KREDIT_BW</div><div class="param-enum">CFD_BW</div><div class="param-enum">ZINSFUTURE_BW</div><div class="param-enum">REPO_BW</div><div class="param-enum">WERTPAPIERLEIHE_BW</div><div class="param-enum">EWB</div><div class="param-enum">PWB</div><div class="param-enum">STEUERN_LATENTE_AKTIVE</div><div class="param-enum">FX_FORWARD_BW</div><div class="param-enum">STOCK_FUTURE_BW</div><div class="param-enum">ZINSABGRENZUNG</div><div class="param-enum">SALDO_A_ODER_E</div><div class="param-enum">RECHNUNGSFORDERUNG_BW</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ResponseEntity"><code>ResponseEntity</code> - ResponseEntity</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">body (optional)</div><div class="param-desc"><span class="param-type"><a href="#object">Object</a></span>  </div>
+<div class="param">statusCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">100 CONTINUE</div><div class="param-enum">101 SWITCHING_PROTOCOLS</div><div class="param-enum">102 PROCESSING</div><div class="param-enum">103 CHECKPOINT</div><div class="param-enum">200 OK</div><div class="param-enum">201 CREATED</div><div class="param-enum">202 ACCEPTED</div><div class="param-enum">203 NON_AUTHORITATIVE_INFORMATION</div><div class="param-enum">204 NO_CONTENT</div><div class="param-enum">205 RESET_CONTENT</div><div class="param-enum">206 PARTIAL_CONTENT</div><div class="param-enum">207 MULTI_STATUS</div><div class="param-enum">208 ALREADY_REPORTED</div><div class="param-enum">226 IM_USED</div><div class="param-enum">300 MULTIPLE_CHOICES</div><div class="param-enum">301 MOVED_PERMANENTLY</div><div class="param-enum">302 FOUND</div><div class="param-enum">302 MOVED_TEMPORARILY</div><div class="param-enum">303 SEE_OTHER</div><div class="param-enum">304 NOT_MODIFIED</div><div class="param-enum">305 USE_PROXY</div><div class="param-enum">307 TEMPORARY_REDIRECT</div><div class="param-enum">308 PERMANENT_REDIRECT</div><div class="param-enum">400 BAD_REQUEST</div><div class="param-enum">401 UNAUTHORIZED</div><div class="param-enum">402 PAYMENT_REQUIRED</div><div class="param-enum">403 FORBIDDEN</div><div class="param-enum">404 NOT_FOUND</div><div class="param-enum">405 METHOD_NOT_ALLOWED</div><div class="param-enum">406 NOT_ACCEPTABLE</div><div class="param-enum">407 PROXY_AUTHENTICATION_REQUIRED</div><div class="param-enum">408 REQUEST_TIMEOUT</div><div class="param-enum">409 CONFLICT</div><div class="param-enum">410 GONE</div><div class="param-enum">411 LENGTH_REQUIRED</div><div class="param-enum">412 PRECONDITION_FAILED</div><div class="param-enum">413 PAYLOAD_TOO_LARGE</div><div class="param-enum">413 REQUEST_ENTITY_TOO_LARGE</div><div class="param-enum">414 URI_TOO_LONG</div><div class="param-enum">414 REQUEST_URI_TOO_LONG</div><div class="param-enum">415 UNSUPPORTED_MEDIA_TYPE</div><div class="param-enum">416 REQUESTED_RANGE_NOT_SATISFIABLE</div><div class="param-enum">417 EXPECTATION_FAILED</div><div class="param-enum">418 I_AM_A_TEAPOT</div><div class="param-enum">419 INSUFFICIENT_SPACE_ON_RESOURCE</div><div class="param-enum">420 METHOD_FAILURE</div><div class="param-enum">421 DESTINATION_LOCKED</div><div class="param-enum">422 UNPROCESSABLE_ENTITY</div><div class="param-enum">423 LOCKED</div><div class="param-enum">424 FAILED_DEPENDENCY</div><div class="param-enum">426 UPGRADE_REQUIRED</div><div class="param-enum">428 PRECONDITION_REQUIRED</div><div class="param-enum">429 TOO_MANY_REQUESTS</div><div class="param-enum">431 REQUEST_HEADER_FIELDS_TOO_LARGE</div><div class="param-enum">451 UNAVAILABLE_FOR_LEGAL_REASONS</div><div class="param-enum">500 INTERNAL_SERVER_ERROR</div><div class="param-enum">501 NOT_IMPLEMENTED</div><div class="param-enum">502 BAD_GATEWAY</div><div class="param-enum">503 SERVICE_UNAVAILABLE</div><div class="param-enum">504 GATEWAY_TIMEOUT</div><div class="param-enum">505 HTTP_VERSION_NOT_SUPPORTED</div><div class="param-enum">506 VARIANT_ALSO_NEGOTIATES</div><div class="param-enum">507 INSUFFICIENT_STORAGE</div><div class="param-enum">508 LOOP_DETECTED</div><div class="param-enum">509 BANDWIDTH_LIMIT_EXCEEDED</div><div class="param-enum">510 NOT_EXTENDED</div><div class="param-enum">511 NETWORK_AUTHENTICATION_REQUIRED</div>
+<div class="param">statusCodeValue (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="SecurityAgreement"><code>SecurityAgreement</code> - SecurityAgreement</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">agreementDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span>  format: date</div>
+<div class="param">collAgreements (optional)</div><div class="param-desc"><span class="param-type"><a href="#CollateralAgreement">array[CollateralAgreement]</a></span>  </div>
+<div class="param">ctyProtectedId (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">ctyProtectingId (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">executionDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span>  format: date</div>
+<div class="param">guaranteeAgreements (optional)</div><div class="param-desc"><span class="param-type"><a href="#GuaranteeAgreement">array[GuaranteeAgreement]</a></span>  </div>
+<div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">masterAgreementId (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="SimplePeriod"><code>SimplePeriod</code> - SimplePeriod</a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">from (optional)</div><div class="param-desc"><span class="param-type"><a href="#PointInTime">PointInTime</a></span>  </div>
+<div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">till (optional)</div><div class="param-desc"><span class="param-type"><a href="#PointInTime">PointInTime</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>
